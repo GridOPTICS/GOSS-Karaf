@@ -114,6 +114,11 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
                                 <descriptor>mvn:org.apache.karaf.features/framework/${karafVersion}/xml/features</descriptor>
                                 <descriptor>mvn:org.apache.karaf.features/standard/${karafVersion}/xml/features</descriptor>							
                                 <descriptor>mvn:org.apache.karaf.features/enterprise/${karafVersion}/xml/features</descriptor>
+                                <!-- The following allows bundle watching for development mode. Though
+                                	 according to https://issues.apache.org/jira/browse/KARAF-3283 its
+                                	 a bug and will be fixed in 3.0.3
+                               	-->
+                                <descriptor>mvn:org.apache.karaf/org.apache.karaf.util/${karafVersion}</descriptor>
                                 <!--<descriptor>mvn:org.apache.felix/org.apache.felix.ipojo.features/1.12.0/xml/features</descriptor> -->
                                 <!--<descriptor>http://repo1.maven.org/maven2/org/apache/felix/org.apache.felix.ipojo.features/1.12.0/org.apache.felix.ipojo.features-1.12.0.xml</descriptor>-->
                                 <descriptor>mvn:org.apache.activemq/activemq-karaf/${activemqVersion}/xml/features</descriptor>
