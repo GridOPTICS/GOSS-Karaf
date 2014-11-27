@@ -7,12 +7,15 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>pnnl.goss.karaf.standalone.build</groupId>
-    <version>0.1-SNAPSHOT</version>
+	<artifactId>goss-karaf</artifactId>
+    <version>0.2-SNAPSHOT</version>
 	<packaging>karaf-assembly</packaging>	
     <properties>
-        <karaf.version>3.0.1</karaf.version>
-        <goss-core.version>0.1.5-SNAPSHOT</goss-core.version>
-        <goss-fusiondb.version>0.1.5-SNAPSHOT</goss-fusiondb.version>
+    	<activemqVersion>5.10.0</activemqVersion>
+    	<cxfVersion>2.7.13</cxfVersion>
+        <karafVersion>3.0.2</karafVersion>
+        <gossCoreVersion>0.1.6-SNAPSHOT</gossCoreVersion>
+        <!-- <goss-fusiondb.version>0.1.5-SNAPSHOT</goss-fusiondb.version>
         <goss-kairosdb.version>0.1.4-SNAPSHOT</goss-kairosdb.version>
         <goss-gridmw.version>0.1.4-SNAPSHOT</goss-gridmw.version>
 		<goss-tool-fncs.version>0.1.4-SNAPSHOT</goss-tool-fncs.version>
@@ -21,7 +24,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
         <goss-gridpack.version>0.1.5-SNAPSHOT</goss-gridpack.version>
         <goss-demo.version>0.1.5-SNAPSHOT</goss-demo.version>
         <goss-vaadin.version>0.1.5-SNAPSHOT</goss-vaadin.version>
-		<goss-sdgsf.version>0.1.5-SNAPSHOT</goss-sdgsf.version>
+		<goss-sdgsf.version>0.1.5-SNAPSHOT</goss-sdgsf.version> -->
         
 
     </properties>
@@ -33,7 +36,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
                 <plugin>
                     <groupId>org.apache.karaf.tooling</groupId>
                     <artifactId>karaf-maven-plugin</artifactId>
-                    <version>3.0.1</version>
+                    <version>${karafVersion}</version>
                     <extensions>true</extensions>
                 </plugin>
                 <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
@@ -53,7 +56,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
                 							karaf-maven-plugin
                 						</artifactId>
                 						<versionRange>
-                							[3.0.1,)
+                							[${karafVersion},)
                 						</versionRange>
                 						<goals>
                 							<goal>install-kars</goal>
@@ -108,22 +111,22 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 						<configuration>
 							<aggregateFeatures>true</aggregateFeatures>
 							<descriptors>							
-                                <descriptor>mvn:org.apache.karaf.features/framework/${karaf.version}/xml/features</descriptor>
-                                <descriptor>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</descriptor>							
-                                <descriptor>mvn:org.apache.karaf.features/enterprise/${karaf.version}/xml/features</descriptor>
+                                <descriptor>mvn:org.apache.karaf.features/framework/${karafVersion}/xml/features</descriptor>
+                                <descriptor>mvn:org.apache.karaf.features/standard/${karafVersion}/xml/features</descriptor>							
+                                <descriptor>mvn:org.apache.karaf.features/enterprise/${karafVersion}/xml/features</descriptor>
                                 <!--<descriptor>mvn:org.apache.felix/org.apache.felix.ipojo.features/1.12.0/xml/features</descriptor> -->
                                 <!--<descriptor>http://repo1.maven.org/maven2/org/apache/felix/org.apache.felix.ipojo.features/1.12.0/org.apache.felix.ipojo.features-1.12.0.xml</descriptor>-->
-                                <descriptor>mvn:org.apache.activemq/activemq-karaf/5.9.0/xml/features</descriptor>
-                                <descriptor>mvn:org.apache.cxf.karaf/apache-cxf/2.7.10/xml/features</descriptor>
-                                <descriptor>mvn:pnnl.goss/goss-core-features/${goss-core.version}/xml/features</descriptor>                                
-                                <!-- <descriptor>mvn:pnnl.goss/goss-fusiondb-features/${goss-fusiondb.version}/xml/features</descriptor> -->
+                                <descriptor>mvn:org.apache.activemq/activemq-karaf/${activemqVersion}/xml/features</descriptor>
+                                <descriptor>mvn:org.apache.cxf.karaf/apache-cxf/${cxfVersion}/xml/features</descriptor>
+                                <descriptor>mvn:pnnl.goss/goss-feature/${gossCoreVersion}/xml/features</descriptor>                                
+                                <!-- <descriptor>mvn:pnnl.goss/goss-fusiondb-features/${goss-fusiondb.version}/xml/features</descriptor>
                                 <descriptor>mvn:pnnl.goss/goss-kairosdb-features/${goss-kairosdb.version}/xml/features</descriptor> 
                                 <descriptor>mvn:pnnl.goss/goss-powergrid-features/${goss-powergrid.version}/xml/features</descriptor>
                                 <descriptor>mvn:pnnl.goss/goss-gridpack-features/${goss-gridpack.version}/xml/features</descriptor>
                                 <descriptor>mvn:pnnl.goss/goss-demo-features/${goss-demo.version}/xml/features</descriptor>
                                 <descriptor>mvn:de.mhus.karaf/vaadin-feature/1.0.0/xml/features</descriptor>
                                 <descriptor>mvn:pnnl.goss/goss-vaadin-features/0.1.5-SNAPSHOT/xml/features</descriptor>
-								<descriptor>mvn:pnnl.goss/goss-sdgsf-features/0.1.5-SNAPSHOT/xml/features</descriptor>
+								<descriptor>mvn:pnnl.goss/goss-sdgsf-features/0.1.5-SNAPSHOT/xml/features</descriptor> -->
                                 
 							</descriptors>
 							
@@ -142,7 +145,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 								<feature>jdbc</feature>
 								<feature>jpa</feature>
 								<feature>openjpa</feature>
-								<feature>hibernate4</feature>
+								<!-- <feature>hibernate</feature> -->
                                 <feature>activemq</feature>
                                 <feature>cxf</feature>
                                 <feature>goss-ipojo-wrapper</feature>
@@ -151,14 +154,13 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
                                 <!-- <feature>goss-fusiondb-features</feature>
                                 <feature>goss-gridmw-features</feature>
 								<feature>goss-tool-fncs-features</feature>
-								<feature>goss-tool-mdart-features</feature>-->
+								<feature>goss-tool-mdart-features</feature>
                                 <feature>goss-powergrid-features</feature>
                                 <feature>goss-gridpack-features</feature>
                                 <feature>goss-demo-features</feature>
                                 <feature>vaadin-feature</feature>
                                 <feature>goss-vaadin-features</feature>
-								<feature>goss-sdgsf-features</feature>
-
+								<feature>goss-sdgsf-features</feature>-->
 							</features>
 							<repository>${basedir}/target/assembly/system</repository>
 						</configuration>
@@ -179,10 +181,9 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 						<feature>jdbc</feature>
 						<feature>jpa</feature>
 						<feature>openjpa</feature>
-						<feature>hibernate4</feature>
+						<!-- <feature>hibernate</feature> -->
                         <feature>goss-ipojo</feature>
-                        <feature>goss-activemq-broker-nosecurity</feature>
-                        
+                        <feature>goss-activemq-broker-nosecurity</feature>                        
                         <feature>goss-core-feature</feature>
                         <!-- <feature>goss-core-web-feature</feature> -->
                         
@@ -194,7 +195,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
                         <feature>jdbc</feature>
                         <feature>jpa</feature>
                         <feature>openjpa</feature>
-						<feature>hibernate4</feature>
+						<!-- <feature>hibernate</feature> -->
                         <feature>goss-ipojo</feature>
                         <feature>activemq</feature>
                         <feature>cxf</feature>
@@ -211,7 +212,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 			<groupId>org.apache.karaf.features</groupId>
 			<artifactId>framework</artifactId>
 			<scope>compile</scope>
-			<version>${karaf.version}</version>
+			<version>${karafVersion}</version>
 			<type>kar</type>
 		</dependency>
 		<dependency>
@@ -219,7 +220,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 			<artifactId>standard</artifactId>
 			<classifier>features</classifier>
 			<scope>runtime</scope>
-			<version>${karaf.version}</version>
+			<version>${karafVersion}</version>
 			<type>xml</type>
 		</dependency>
 		<dependency>
@@ -227,7 +228,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 			<artifactId>enterprise</artifactId>
 			<classifier>features</classifier>
 			<scope>runtime</scope>
-			<version>${karaf.version}</version>
+			<version>${karafVersion}</version>
 			<type>xml</type>
 		</dependency>
 		<dependency>
@@ -235,7 +236,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 			<artifactId>spring</artifactId>
 			<classifier>features</classifier>
 			<scope>runtime</scope>
-			<version>${karaf.version}</version>
+			<version>${karafVersion}</version>
 			<type>xml</type>
 			<optional>true</optional>			
 		</dependency>
@@ -244,26 +245,26 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <artifactId>apache-cxf</artifactId>
             <classifier>features</classifier>
 			<scope>runtime</scope>
-			<version>2.7.10</version>
+			<version>${cxfVersion}</version>
 			<type>xml</type>
         </dependency>
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-karaf</artifactId>
-            <version>5.9.0</version>
+            <version>${activemqVersion}</version>
             <scope>runtime</scope>
             <classifier>features</classifier>
 			<type>xml</type>
+		</dependency>
+		<dependency>
+        	<groupId>pnnl.goss</groupId>
+        	<artifactId>goss-feature</artifactId>
+        	<version>${gossCoreVersion}</version>
+        	<type>xml</type>
+        	<scope>runtime</scope>
+        	<classifier>features</classifier>
         </dependency>
-        <dependency>
-            <groupId>pnnl.goss</groupId>
-            <artifactId>goss-core-features</artifactId>
-            <classifier>features</classifier>
-            <scope>runtime</scope>
-            <version>${goss-core.version}</version>
-            <type>xml</type>
-        </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>pnnl.goss</groupId>
             <artifactId>goss-fusiondb-features</artifactId>
             <classifier>features</classifier>
@@ -350,8 +351,9 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <scope>runtime</scope>
             <version>${goss-sdgsf.version}</version>
             <type>xml</type>
-        </dependency>
+        </dependency> -->
+        
 	</dependencies>
 
-	<artifactId>goss-karaf</artifactId>
+	
 </project>
