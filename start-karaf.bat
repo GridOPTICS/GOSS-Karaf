@@ -1,2 +1,2 @@
-call cp -f src\main\resources\etc\org.ops4j.pax.logging.cfg target\assembly\etc\org.ops4j.pax.logging.cfg
+call xcopy src\main\resources\etc target\assembly\etc /y
 target\assembly\bin\karaf.bat debug 
