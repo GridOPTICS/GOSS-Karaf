@@ -13,7 +13,7 @@
         <cxfVersion>2.7.13</cxfVersion>
         <karafVersion>3.0.2</karafVersion>
         <ipojoVersion>1.11.2</ipojoVersion>
-        <gossCoreVersion>0.1.7</gossCoreVersion>
+        <gossCoreVersion>0.1.8</gossCoreVersion>
         <!-- <goss-fusiondb.version>0.1.5-SNAPSHOT</goss-fusiondb.version> <goss-kairosdb.version>0.1.4-SNAPSHOT</goss-kairosdb.version>
             <goss-gridmw.version>0.1.4-SNAPSHOT</goss-gridmw.version> <goss-tool-fncs.version>0.1.4-SNAPSHOT</goss-tool-fncs.version>
             <goss-tool-mdart.version>0.1.4-SNAPSHOT</goss-tool-mdart.version> <goss-powergrid.version>0.1.5-SNAPSHOT</goss-powergrid.version>
@@ -97,7 +97,7 @@
                                 <descriptor>http://repo1.maven.org/maven2/org/apache/felix/org.apache.felix.ipojo.features/${ipojoVersion}/org.apache.felix.ipojo.features-${ipojoVersion}.xml</descriptor>
                                 <descriptor>mvn:org.apache.activemq/activemq-karaf/${activemqVersion}/xml/features</descriptor>
                                 <descriptor>mvn:org.apache.cxf.karaf/apache-cxf/${cxfVersion}/xml/features</descriptor>
-                                <descriptor>mvn:pnnl.goss/goss-feature/${gossCoreVersion}/xml/features</descriptor>
+                                <descriptor>mvn:pnnl.goss/goss-core-feature/${gossCoreVersion}/xml/features</descriptor>
                             </descriptors>
                         </configuration>
                     </execution>
@@ -284,7 +284,7 @@
         </dependency>
         <dependency>
             <groupId>pnnl.goss</groupId>
-            <artifactId>goss-feature</artifactId>
+            <artifactId>goss-core-feature</artifactId>
             <version>${gossCoreVersion}</version>
             <type>xml</type>
             <scope>runtime</scope>
