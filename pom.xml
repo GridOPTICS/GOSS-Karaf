@@ -39,6 +39,12 @@
             <id>goss-repo</id>
             <url>http://dl.bintray.com/gridoptics/GOSS/</url>
         </repository>
+        <!-- This will be the only eventually! -->
+        <repository>
+            <id>goss-repo2</id>
+            <url>http://dl.bintray.com/gridoptics/goss/</url>
+        </repository>
+
 
     </repositories>
     <build>
@@ -109,9 +115,9 @@
                         <feature>management</feature>
                     </bootFeatures>
                     <!-- no installedFeatures -->
-                      <!-- <installedFeatures>
-                          <feature>goss-core-feature</feature>
-                      </installedFeatures> -->
+                    <installedFeatures>
+                        <feature>goss-core-feature</feature>
+                    </installedFeatures>
                 </configuration>
             </plugin>
         </plugins>
