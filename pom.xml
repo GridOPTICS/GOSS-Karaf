@@ -11,7 +11,7 @@
     <properties>
         <activemqVersion>5.10.0</activemqVersion>
         <cxfVersion>2.7.13</cxfVersion>
-        <karafVersion>3.0.2</karafVersion>
+        <karafVersion>3.0.3-SNAPSHOT</karafVersion>
         <gossCoreVersion>0.1.9</gossCoreVersion>
         <!-- <goss-fusiondb.version>0.1.5-SNAPSHOT</goss-fusiondb.version> <goss-kairosdb.version>0.1.4-SNAPSHOT</goss-kairosdb.version>
             <goss-gridmw.version>0.1.4-SNAPSHOT</goss-gridmw.version> <goss-tool-fncs.version>0.1.4-SNAPSHOT</goss-tool-fncs.version>
@@ -25,7 +25,8 @@
     <repositories>
         <repository>
             <id>apache-snapshot</id>
-            <url>https://repository.apache.org/content/groups/snapshots</url>
+            <url>http://repository.apache.org/snapshots</url>
+            <!-- <url>https://repository.apache.org/content/groups/snapshots</url> -->
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -43,7 +44,6 @@
             <id>goss-repo2</id>
             <url>http://dl.bintray.com/gridoptics/goss/</url>
         </repository>
-
 
     </repositories>
     <build>
@@ -114,6 +114,15 @@
                     </bootFeatures>
                     <!-- no installedFeatures -->
                     <installedFeatures>
+                        <feature>wrapper</feature>
+                        <feature>http</feature>
+                        <feature>war</feature>
+                        <feature>jdbc</feature>
+                        <feature>jpa</feature>
+                        <feature>openjpa</feature>
+                        <feature>hibernate</feature>
+                        <feature>activemq</feature>
+                        <feature>cxf</feature>
                         <feature>goss-core-feature</feature>
                     </installedFeatures>
                 </configuration>
