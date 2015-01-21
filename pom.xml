@@ -12,7 +12,7 @@
         <activemqVersion>5.10.0</activemqVersion>
         <cxfVersion>2.7.13</cxfVersion>
         <karafVersion>3.0.3-SNAPSHOT</karafVersion>
-        <gossCoreVersion>0.1.9</gossCoreVersion>
+        <gossCoreVersion>0.1.9.1</gossCoreVersion>
         <!-- <goss-fusiondb.version>0.1.5-SNAPSHOT</goss-fusiondb.version> <goss-kairosdb.version>0.1.4-SNAPSHOT</goss-kairosdb.version>
             <goss-gridmw.version>0.1.4-SNAPSHOT</goss-gridmw.version> <goss-tool-fncs.version>0.1.4-SNAPSHOT</goss-tool-fncs.version>
             <goss-tool-mdart.version>0.1.4-SNAPSHOT</goss-tool-mdart.version> <goss-powergrid.version>0.1.5-SNAPSHOT</goss-powergrid.version>
@@ -117,10 +117,11 @@
                         <feature>wrapper</feature>
                         <feature>http</feature>
                         <feature>war</feature>
-                        <feature>jdbc</feature>
+                        <!-- <feature>jdbc</feature>
                         <feature>jpa</feature>
                         <feature>openjpa</feature>
-                        <feature>hibernate</feature>
+                        <feature version="4.2.15.Final">hibernate</feature>
+                        -->
                         <feature>activemq</feature>
                         <feature>cxf</feature>
                         <feature>goss-core-feature</feature>
